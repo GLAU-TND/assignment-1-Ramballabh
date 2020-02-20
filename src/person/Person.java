@@ -38,6 +38,23 @@ public class Person {
         return list;
     }
 
+    public void setfName(String fName) {
+        this.fName = fName;
+    }
+
+    public void setlName(String lName) {
+        this.lName = lName;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setPhoneNumber(long phoneNumber) {
+        this.phoneNumber = phoneNumber;
+        list.add(phoneNumber);
+    }
+
     private StringBuilder addString() {
         StringBuilder sb = new StringBuilder();
         int k = 0;
