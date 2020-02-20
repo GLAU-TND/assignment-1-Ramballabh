@@ -3,6 +3,10 @@ package definition;
 import adt.QueueADT;
 
 public class Queue<E> implements QueueADT<E> {
+    private Node<E> front = null;
+    private Node<E> rear = null;
+    private int size = 0;
+
     @Override
     public void add(E item) {
 
