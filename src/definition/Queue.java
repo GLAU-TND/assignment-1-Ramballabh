@@ -43,7 +43,7 @@ public class Queue<E> implements QueueADT<E> {
 
     @Override
     public E peek() {
-        return null;
+        return front.getData();
     }
 
     @Override
