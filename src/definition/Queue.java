@@ -32,4 +32,8 @@ public class Queue<E> implements QueueADT<E> {
     public void print() {
 
     }
+
+    private static class Node<E> {
+
+    }
 }
