@@ -6,7 +6,7 @@ import person.Person;
 import java.util.Scanner;
 
 public class Main {
-    public void main(String[] args) {
+    public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         Queue<Person> queue = new Queue<>();
         System.out.println("Welcome to DBC's Contact List App\n" +
@@ -19,28 +19,42 @@ public class Main {
         scanner.nextLine();
         switch (choice) {
             case 1:
-                this.addContact();
+                addContact();
         }
 
     }
 
-    public void addContact() {
+    public static void addContact() {
         Scanner scanner = new Scanner(System.in);
+        Person person = new Person();
         String s;
         System.out.print("You have chosen to add a new contact: \n" +
                 "Please enter the name of the Person\n" +
                 "First Name:");
         String fName = scanner.nextLine();
+        person.setfName(fName);
         System.out.print("Last Name:");
         String lName = scanner.nextLine();
+        person.setlName(lName);
         System.out.print("Contact Number: ");
         long phoneNumber = scanner.nextLong();
+        person.setPhoneNumber(phoneNumber);
         scanner.nextLine();
         do {
             System.out.print("Would you like to add another contact number? (y/n):");
             s = scanner.next();
-
+            if (s.equalsIgnoreCase("y")) {
+                long phoneNumber1 = scanner.nextLong();
+                person.setPhoneNumber(phoneNumber1);
+            }
         } while (s.equalsIgnoreCase("y"));
+        System.out.print("Would you like to add email address? (y/n):");
+        s = scanner.next();
+        if (s.equalsIgnoreCase("y")) {
+            System.out.print("Email Address: ");
+            String email = scanner.nextLine();
+            person.setEmail(email);
+        }
     }
 
 }
