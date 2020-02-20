@@ -38,6 +38,10 @@ public class Queue<E> implements QueueADT<E> {
         private Node<E> next;
         private Node<E> previous;
 
-
+        public Node(E data, Node<E> next, Node<E> previous) {
+            this.data = data;
+            this.next = next;
+            this.previous = previous;
+        }
     }
 }
