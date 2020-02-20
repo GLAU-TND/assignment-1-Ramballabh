@@ -18,4 +18,23 @@ public class Person {
         this.list = list;
     }
 
+    public String getfName() {
+        return fName;
+    }
+
+    public String getlName() {
+        return lName;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public long getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public List<Long> getList() {
+        return list;
+    }
 }
