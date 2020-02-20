@@ -48,4 +48,14 @@ public class Person {
         }
         return sb;
     }
+
+    @Override
+    public String toString() {
+        return "-------- * -------- * -------- * --------\n" +
+                "First Name: " + fName + "\n" +
+                "Last Name: " + lName + "\n" +
+                (list.size() == 1 ? "Contact Number: " : "Contact Number(s)") + addString() + "\n" +
+                "Email Address: " + email + "\n" +
+                "\n-------- * -------- * -------- * --------";
+    }
 }
