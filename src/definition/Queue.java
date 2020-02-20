@@ -24,10 +24,21 @@ public class Queue<E> implements QueueADT<E> {
             size++;
         }
     }
-
     @Override
     public E remove() {
-        return null;
+        if (size == 1) {
+            E data = front.getData();
+            front = front.next;
+            rear = front;
+            size--;
+            return data;
+        } else {
+            E data = front.getData();
+            front.next.previous = null;
+            front = front.next;
+            size--;
+            return data;
+        }
     }
 
     @Override
