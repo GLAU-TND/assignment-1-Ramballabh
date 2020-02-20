@@ -34,6 +34,10 @@ public class Queue<E> implements QueueADT<E> {
     }
 
     private static class Node<E> {
+        private E data;
+        private Node<E> next;
+        private Node<E> previous;
+
 
     }
 }
