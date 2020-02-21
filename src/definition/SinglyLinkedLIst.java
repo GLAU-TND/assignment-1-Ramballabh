@@ -39,7 +39,7 @@ public class SinglyLinkedLIst<E> implements SinglyADT<E> {
 
     @Override
     public void add(E item) {
-
+        add(size, item);
     }
 
     @Override
