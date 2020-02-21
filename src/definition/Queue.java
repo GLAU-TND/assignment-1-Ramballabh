@@ -85,6 +85,18 @@ public class Queue<E> implements QueueADT<E> {
 
     }
 
+    @Override
+    public int search(E item) {
+        Node<E> temp = front;
+        for (int i = 0; i < size; i++) {
+            E data = temp.getData();
+            if (item == data)
+                return i + 1;
+            temp = temp.getNext();
+        }
+        return 0;
+    }
+
     private static class Node<E> {
         private E data;
         private Node<E> next;

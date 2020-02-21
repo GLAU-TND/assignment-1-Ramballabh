@@ -21,4 +21,6 @@ public interface QueueADT<E> {
 
     void sort();
 
+    int search(E item);
+
 }

@@ -26,6 +26,11 @@ public class Main {
                 case 2:
                     queue.print();
                     break;
+                case 3:
+                    System.out.println("You could search for a contact from their first names:");
+                    String fName = scanner.nextLine();
+
+
                 case 5:
                     flag = false;
                     break;
