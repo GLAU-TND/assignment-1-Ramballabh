@@ -3,7 +3,7 @@ package person;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Person {
+public class Person implements Comparable<Person> {
     private String fName;
     private String lName;
     private String email;
@@ -11,7 +11,6 @@ public class Person {
     List<Long> list = new ArrayList<>();
 
     public Person() {
-
     }
 
     public Person(String fName, String lName, String email, long phoneNumber, List<Long> list) {
@@ -79,5 +78,11 @@ public class Person {
                 (list.size() == 1 ? "Contact Number: " : "Contact Number(s):") + addString() + "\n" +
                 "Email Address: " + email + "\n" +
                 "-------- * -------- * -------- * --------";
+    }
+
+    @Override
+    public int compareTo(Person person) {
+        return fName.compareTo(person.fName);
+
     }
 }

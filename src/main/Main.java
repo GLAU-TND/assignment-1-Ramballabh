@@ -68,6 +68,7 @@ public class Main {
             person.setEmail(email);
         }
         queue.add(person);
+        queue.sort();
         return queue;
     }
 

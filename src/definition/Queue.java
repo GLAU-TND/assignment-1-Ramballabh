@@ -82,12 +82,7 @@ public class Queue<E> implements QueueADT<E> {
 
     @Override
     public void sort() {
-        Node<E> node;
-        for (int i = 0; i < size; i++) {
-            for (int j = 0; j < size - i; j++) {
 
-            }
-        }
     }
 
     private static class Node<E> {
