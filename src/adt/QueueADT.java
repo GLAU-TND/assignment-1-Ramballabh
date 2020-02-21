@@ -19,4 +19,6 @@ public interface QueueADT<E> {
 
     void print();
 
+    void sort();
+
 }

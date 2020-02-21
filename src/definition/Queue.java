@@ -67,6 +67,11 @@ public class Queue<E> implements QueueADT<E> {
         }
     }
 
+    @Override
+    public void sort() {
+
+    }
+
     private static class Node<E> {
         private E data;
         private Node<E> next;

@@ -9,22 +9,31 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         Queue<Person> queue = new Queue<>();
-        System.out.println("Welcome to DBC's Contact List App\n" +
-                "Press 1 to add a new contact\n" +
-                "Press 2 to view all contacts\n" +
-                "Press 3 to search for a contact\n" +
-                "Press 4 to delete a contact\n" +
-                "Press 5 to exit program ");
-        int choice = scanner.nextInt();
-        scanner.nextLine();
-        switch (choice) {
-            case 1:
-                addContact();
-        }
-
+        boolean flag = true;
+        do {
+            System.out.println("Welcome to DBC's Contact List App\n" +
+                    "Press 1 to add a new contact\n" +
+                    "Press 2 to view all contacts\n" +
+                    "Press 3 to search for a contact\n" +
+                    "Press 4 to delete a contact\n" +
+                    "Press 5 to exit program ");
+            int choice = scanner.nextInt();
+            scanner.nextLine();
+            switch (choice) {
+                case 1:
+                    addContact(queue);
+                    break;
+                case 2:
+                    queue.print();
+                    break;
+                case 5:
+                    flag = false;
+                    break;
+            }
+        } while (flag);
     }
 
-    public static void addContact() {
+    public static Queue addContact(Queue queue) {
         Scanner scanner = new Scanner(System.in);
         Person person = new Person();
         String s;
@@ -44,17 +53,22 @@ public class Main {
             System.out.print("Would you like to add another contact number? (y/n):");
             s = scanner.next();
             if (s.equalsIgnoreCase("y")) {
+                System.out.print("Contact Number: ");
                 long phoneNumber1 = scanner.nextLong();
                 person.setPhoneNumber(phoneNumber1);
             }
         } while (s.equalsIgnoreCase("y"));
+        scanner.nextLine();
         System.out.print("Would you like to add email address? (y/n):");
         s = scanner.next();
+        scanner.nextLine();
         if (s.equalsIgnoreCase("y")) {
             System.out.print("Email Address: ");
             String email = scanner.nextLine();
             person.setEmail(email);
         }
+        queue.add(person);
+        return queue;
     }
 
 }

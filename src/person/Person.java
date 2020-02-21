@@ -65,7 +65,8 @@ public class Person {
         for (long i : list) {
             sb.append(i);
             k++;
-            sb.append((k < list.size() - 1 ? "," : ""));
+            sb.append((k <= list.size() - 1 ? "," : ""));
+            sb.append(" ");
         }
         return sb;
     }
@@ -75,8 +76,8 @@ public class Person {
         return "-------- * -------- * -------- * --------\n" +
                 "First Name: " + fName + "\n" +
                 "Last Name: " + lName + "\n" +
-                (list.size() == 1 ? "Contact Number: " : "Contact Number(s)") + addString() + "\n" +
+                (list.size() == 1 ? "Contact Number: " : "Contact Number(s):") + addString() + "\n" +
                 "Email Address: " + email + "\n" +
-                "\n-------- * -------- * -------- * --------";
+                "-------- * -------- * -------- * --------";
     }
 }
