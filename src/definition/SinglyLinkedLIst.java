@@ -29,6 +29,9 @@ public class SinglyLinkedLIst<E> implements SinglyADT<E> {
     }
 
     private static class Node<E> {
+        private E dtaa;
+        private Node<E> next;
+
 
     }
 }
