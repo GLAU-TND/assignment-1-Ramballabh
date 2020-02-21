@@ -7,12 +7,17 @@ public class Queue<E> implements QueueADT<E> {
     private Node<E> rear = null;
     private int size = 0;
 
+    private Node<E> getNode(int index) {
+        return null;
+    }
+
     private void addFirst(E item) {
         Node<E> node = new Node<>(item, rear, front);
         front = node;
         rear = node;
         size++;
     }
+
     @Override
     public void add(E item) {
         if (size == 0) {
@@ -69,7 +74,12 @@ public class Queue<E> implements QueueADT<E> {
 
     @Override
     public void sort() {
+        Node<E> node;
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size - i; j++) {
 
+            }
+        }
     }
 
     private static class Node<E> {
