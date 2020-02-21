@@ -11,6 +11,11 @@ public class SinglyLinkedLIst<E> implements SinglyADT<E> {
         size++;
     }
 
+    private void addAfter(Node<E> node, E item) {
+        Node<E> node1 = new Node<>(item, node.next);
+        node.next = node1;
+        size++;
+    }
 
     @Override
     public void add(E item) {
