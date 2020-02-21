@@ -77,5 +77,12 @@ public class Main {
         return list;
     }
 
+    public static SinglyLinkedLIst removeContact(SinglyLinkedLIst list) {
+        System.out.println("Here are all your contacts:");
+        int i = 1;
+
+        return list;
+    }
+
 
 }
