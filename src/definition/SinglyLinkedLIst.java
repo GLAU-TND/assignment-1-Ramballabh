@@ -1,4 +1,4 @@
 package definition;
 
-public class SinglyLinkedLIst {
+public class SinglyLinkedLIst<E> {
 }
