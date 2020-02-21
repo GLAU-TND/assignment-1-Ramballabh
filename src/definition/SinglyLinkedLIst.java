@@ -86,7 +86,13 @@ public class SinglyLinkedLIst<E> implements SinglyADT<E> {
 
     @Override
     public void print() {
-
+        Node<E> response = head;
+        System.out.println("---Here are all your contacts---");
+        for (int i = 0; i < size; i++) {
+            E data = response.getData();
+            response = response.getNext();
+            System.out.println(data);
+        }
     }
 
     private static class Node<E> {
