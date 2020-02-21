@@ -6,6 +6,12 @@ public class SinglyLinkedLIst<E> implements SinglyADT<E> {
     private int size = 0;
     private Node<E> head = null;
 
+    private void addFirst(E item) {
+        head = new Node<>(item, head);
+        size++;
+    }
+
+
     @Override
     public void add(E item) {
 
