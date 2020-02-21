@@ -6,7 +6,11 @@ public class SinglyLinkedLIst<E> implements SinglyADT<E> {
     private int size = 0;
     private Node<E> head = null;
 
-    private Node<E> getNode(int index) {
+    public int getSize() {
+        return size;
+    }
+
+    public Node<E> getNode(int index) {
         Node<E> response = head;
         if (index < 0 && index > size) {
             throw new IndexOutOfBoundsException(Integer.toString(index));
@@ -76,6 +80,7 @@ public class SinglyLinkedLIst<E> implements SinglyADT<E> {
 
     @Override
     public int search(E item) {
+
         return 0;
     }
 
@@ -94,7 +99,6 @@ public class SinglyLinkedLIst<E> implements SinglyADT<E> {
             System.out.println(data);
         }
     }
-
     private static class Node<E> {
         private E data;
         private Node<E> next;

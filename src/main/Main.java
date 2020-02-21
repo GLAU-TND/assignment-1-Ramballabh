@@ -29,6 +29,7 @@ public class Main {
                 case 3:
                     System.out.println("You could search for a contact from their first names:");
                     String fName = scanner.nextLine();
+                case 4:
 
 
                 case 5:
@@ -73,8 +74,8 @@ public class Main {
             person.setEmail(email);
         }
         list.add(person);
-        list.sort();
         return list;
     }
+
 
 }
