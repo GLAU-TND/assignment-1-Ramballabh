@@ -1,6 +1,6 @@
 package main;
 
-import definition.Queue;
+import definition.SinglyLinkedLIst;
 import person.Person;
 
 import java.util.Scanner;
@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        Queue<Person> queue = new Queue<>();
+        SinglyLinkedLIst<Person> list = new SinglyLinkedLIst<>();
         boolean flag = true;
         do {
             System.out.println("Welcome to DBC's Contact List App\n" +
@@ -21,10 +21,10 @@ public class Main {
             scanner.nextLine();
             switch (choice) {
                 case 1:
-                    addContact(queue);
+                    addContact(list);
                     break;
                 case 2:
-                    queue.print();
+                    list.print();
                     break;
                 case 3:
                     System.out.println("You could search for a contact from their first names:");
@@ -38,7 +38,7 @@ public class Main {
         } while (flag);
     }
 
-    public static Queue addContact(Queue queue) {
+    public static SinglyLinkedLIst addContact(SinglyLinkedLIst list) {
         Scanner scanner = new Scanner(System.in);
         Person person = new Person();
         String s;
@@ -72,9 +72,9 @@ public class Main {
             String email = scanner.nextLine();
             person.setEmail(email);
         }
-        queue.add(person);
-        queue.sort();
-        return queue;
+        list.add(person);
+        list.sort();
+        return list;
     }
 
 }

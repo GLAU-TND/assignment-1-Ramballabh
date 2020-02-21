@@ -71,7 +71,7 @@ public class SinglyLinkedLIst<E> implements SinglyADT<E> {
 
     @Override
     public void remove() {
-
+        remove(size);
     }
 
     @Override
