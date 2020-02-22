@@ -80,10 +80,6 @@ public class Person implements Comparable<Person> {
                 "-------- * -------- * -------- * --------";
     }
 
-    public String toS() {
-        return fName + " " + lName;
-    }
-
     @Override
     public int compareTo(Person person) {
         return fName.compareTo(person.fName);
