@@ -104,7 +104,21 @@ public class Main {
     }
 
     public static SinglyLinkedLIst searchContact(SinglyLinkedLIst list, List list2) {
-
+        System.out.println("You could search for a contact from their first names:");
+        Scanner scanner = new Scanner(System.in);
+        String fName = scanner.nextLine();
+        int k = 0;
+        for (int i = 0; i < list2.size(); i++) {
+            if (fName.equals(list2.get(i))) {
+                k++;
+            }
+        }
+        System.out.println(k + " match found!");
+        for (int i = 0; i < list2.size(); i++) {
+            if (fName.equals(list2.get(i))) {
+                list.print(i + 1);
+            }
+        }
         return list;
     }
 }
