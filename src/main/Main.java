@@ -3,11 +3,14 @@ package main;
 import definition.SinglyLinkedLIst;
 import person.Person;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        List<String> list1 = new ArrayList<>();
         SinglyLinkedLIst<Person> list = new SinglyLinkedLIst<>();
         boolean flag = true;
         do {
@@ -21,7 +24,7 @@ public class Main {
             scanner.nextLine();
             switch (choice) {
                 case 1:
-                    addContact(list);
+                    addContact(list, list1);
                     break;
                 case 2:
                     list.print();
@@ -30,8 +33,8 @@ public class Main {
                     System.out.println("You could search for a contact from their first names:");
                     String fName = scanner.nextLine();
                 case 4:
-
-
+                    removeContact(list, list1);
+                    break;
                 case 5:
                     flag = false;
                     break;
@@ -39,7 +42,7 @@ public class Main {
         } while (flag);
     }
 
-    public static SinglyLinkedLIst addContact(SinglyLinkedLIst list) {
+    public static SinglyLinkedLIst addContact(SinglyLinkedLIst list, List list1) {
         Scanner scanner = new Scanner(System.in);
         Person person = new Person();
         String s;
@@ -48,9 +51,11 @@ public class Main {
                 "First Name:");
         String fName = scanner.nextLine();
         person.setfName(fName);
+        list1.add(fName);
         System.out.print("Last Name:");
         String lName = scanner.nextLine();
         person.setlName(lName);
+        list1.add(lName);
         System.out.print("Contact Number: ");
         long phoneNumber = scanner.nextLong();
         person.setPhoneNumber(phoneNumber);
@@ -77,12 +82,23 @@ public class Main {
         return list;
     }
 
-    public static SinglyLinkedLIst removeContact(SinglyLinkedLIst list) {
+    public static SinglyLinkedLIst removeContact(SinglyLinkedLIst list, List list1) {
+        Scanner scanner = new Scanner(System.in);
         System.out.println("Here are all your contacts:");
-        int i = 1;
+        int k = 1;
+        for (int i = 0; i < list1.size() - 1; i = i + 2) {
+            System.out.println(k + "." + list1.get(i) + " " + list1.get(i + 1));
+            k++;
+        }
+        System.out.print("Press the number against the contact to delete it:");
+        int i = scanner.nextInt();
+        list.remove(i - 1);
+        if (i == 1) {
+            System.out.println(list1.get(i - 1) + " " + list1.get(i) + "'s contact deleted from list!");
+        } else {
+            System.out.println(list1.get(i + i - 2) + " " + list1.get(i + i - 1) + "'s contact deleted from list!");
+        }
 
         return list;
     }
-
-
 }

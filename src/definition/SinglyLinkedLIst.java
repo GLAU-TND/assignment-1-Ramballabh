@@ -80,7 +80,13 @@ public class SinglyLinkedLIst<E> implements SinglyADT<E> {
 
     @Override
     public int search(E item) {
-
+        Node<E> temp = head;
+        for (int i = 0; i < size; i++) {
+            E data = temp.getData();
+            if (item == data)
+                return i + 1;
+            temp = temp.getNext();
+        }
         return 0;
     }
 
