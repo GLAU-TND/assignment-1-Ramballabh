@@ -69,7 +69,6 @@ public class Person implements Comparable<Person> {
         }
         return sb;
     }
-
     @Override
     public String toString() {
         return "-------- * -------- * -------- * --------\n" +
@@ -84,5 +83,19 @@ public class Person implements Comparable<Person> {
     public int compareTo(Person person) {
         return fName.compareTo(person.fName);
 
+    }
+
+    public boolean equals(Person person) {
+      /*  int n=this.fName.compareTo(person.fName);
+        if(n==1){
+            return true;
+        }
+        else if(n==0 || n==-1){
+            return false;
+        }
+        return true;
+    */
+        //return (fName.compareToIgnoreCase(person.fName))>=1;
+        return fName.equals(person.fName);
     }
 }

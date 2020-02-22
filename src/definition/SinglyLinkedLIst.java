@@ -92,7 +92,28 @@ public class SinglyLinkedLIst<E> implements SinglyADT<E> {
 
     @Override
     public void sort() {
+        Node current = head, index = null;
+        E temp;
 
+        if (head == null) {
+            return;
+        } else {
+            while (current != null) {
+                //Node index will point to node next to current
+                index = current.next;
+
+                while (index != null) {
+                    //If current node's data is greater than index's node data, swap the data between them
+                    if (!(current.data).equals(index.data)) {
+                        temp = (E) current.data;
+                        current.data = index.data;
+                        index.data = temp;
+                    }
+                    index = index.next;
+                }
+                current = current.next;
+            }
+        }
     }
 
     @Override
@@ -118,7 +139,7 @@ public class SinglyLinkedLIst<E> implements SinglyADT<E> {
         }
     }
 
-    private static class Node<E> {
+    private static class Node<E> implements Comparable<E> {
         private E data;
         private Node<E> next;
 
@@ -133,6 +154,11 @@ public class SinglyLinkedLIst<E> implements SinglyADT<E> {
 
         public Node<E> getNext() {
             return next;
+        }
+
+        @Override
+        public int compareTo(E e) {
+            return 0;
         }
     }
 }

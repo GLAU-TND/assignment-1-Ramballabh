@@ -4,14 +4,13 @@ import definition.SinglyLinkedLIst;
 import person.Person;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        List<String> list1 = new ArrayList<>();
-        List<String> list2 = new ArrayList<>();
+        ArrayList<String> list1 = new ArrayList<>();
+        ArrayList<String> list2 = new ArrayList<>();
         SinglyLinkedLIst<Person> list = new SinglyLinkedLIst<>();
         boolean flag = true;
         do {
@@ -28,13 +27,14 @@ public class Main {
                     addContact(list, list1, list2);
                     break;
                 case 2:
+                    //list.sort();
                     list.print();
                     break;
                 case 3:
                     searchContact(list, list2);
                     break;
                 case 4:
-                    removeContact(list, list1);
+                    removeContact(list, list1, list2);
                     break;
                 case 5:
                     flag = false;
@@ -43,7 +43,7 @@ public class Main {
         } while (flag);
     }
 
-    public static SinglyLinkedLIst addContact(SinglyLinkedLIst list, List list1, List list2) {
+    public static SinglyLinkedLIst addContact(SinglyLinkedLIst list, ArrayList list1, ArrayList list2) {
         Scanner scanner = new Scanner(System.in);
         Person person = new Person();
         String s;
@@ -52,12 +52,11 @@ public class Main {
                 "First Name:");
         String fName = scanner.nextLine();
         person.setfName(fName);
-        list1.add(fName);
         list2.add(fName);
         System.out.print("Last Name:");
         String lName = scanner.nextLine();
         person.setlName(lName);
-        list1.add(lName);
+        list1.add(fName + " " + lName);
         System.out.print("Contact Number: ");
         long phoneNumber = scanner.nextLong();
         person.setPhoneNumber(phoneNumber);
@@ -81,29 +80,29 @@ public class Main {
             person.setEmail(email);
         }
         list.add(person);
+        //Collections.sort(list1);
+        //Collections.sort(list2);
         return list;
     }
 
-    public static SinglyLinkedLIst removeContact(SinglyLinkedLIst list, List list1) {
+    public static SinglyLinkedLIst removeContact(SinglyLinkedLIst list, ArrayList list1, ArrayList list2) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Here are all your contacts:");
         int k = 1;
-        for (int i = 0; i < list1.size() - 1; i = i + 2) {
-            System.out.println(k + "." + list1.get(i) + " " + list1.get(i + 1));
+        for (int i = 0; i < list1.size(); i++) {
+            System.out.println(i + 1 + "." + list1.get(i));
             k++;
         }
         System.out.print("Press the number against the contact to delete it:");
         int i = scanner.nextInt();
-        list.remove(i - 1);
-        if (i == 1) {
-            System.out.println(list1.get(i - 1) + " " + list1.get(i) + "'s contact deleted from list!");
-        } else {
-            System.out.println(list1.get(i + i - 2) + " " + list1.get(i + i - 1) + "'s contact deleted from list!");
-        }
+        list.remove(i);
+        System.out.println(list1.get(i - 1) + "'s contact deleted from list!");
+        list1.remove(i - 1);
+        list2.remove(i - 1);
         return list;
     }
 
-    public static SinglyLinkedLIst searchContact(SinglyLinkedLIst list, List list2) {
+    public static SinglyLinkedLIst searchContact(SinglyLinkedLIst list, ArrayList list2) {
         System.out.println("You could search for a contact from their first names:");
         Scanner scanner = new Scanner(System.in);
         String fName = scanner.nextLine();
@@ -113,10 +112,14 @@ public class Main {
                 k++;
             }
         }
-        System.out.println(k + " match found!");
-        for (int i = 0; i < list2.size(); i++) {
-            if (fName.equals(list2.get(i))) {
-                list.print(i + 1);
+        if (k == 0) {
+            System.out.println("NO RESULTS FOUND!");
+        } else {
+            System.out.println(k + " match found!");
+            for (int i = 0; i < list2.size(); i++) {
+                if (fName.equals(list2.get(i))) {
+                    list.print(i + 1);
+                }
             }
         }
         return list;
