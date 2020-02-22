@@ -4,6 +4,7 @@ import definition.SinglyLinkedLIst;
 import person.Person;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 public class Main {
@@ -27,7 +28,7 @@ public class Main {
                     addContact(list, list1, list2);
                     break;
                 case 2:
-                    //list.sort();
+                    list.sort();
                     list.print();
                     break;
                 case 3:
@@ -80,8 +81,8 @@ public class Main {
             person.setEmail(email);
         }
         list.add(person);
-        //Collections.sort(list1);
-        //Collections.sort(list2);
+        Collections.sort(list1);
+        Collections.sort(list2);
         return list;
     }
 

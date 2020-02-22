@@ -104,7 +104,7 @@ public class SinglyLinkedLIst<E> implements SinglyADT<E> {
 
                 while (index != null) {
                     //If current node's data is greater than index's node data, swap the data between them
-                    if (!(current.data).equals(index.data)) {
+                    if ((current.data).equals(index.data)) {
                         temp = (E) current.data;
                         current.data = index.data;
                         index.data = temp;
