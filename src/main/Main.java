@@ -11,6 +11,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         List<String> list1 = new ArrayList<>();
+        List<String> list2 = new ArrayList<>();
         SinglyLinkedLIst<Person> list = new SinglyLinkedLIst<>();
         boolean flag = true;
         do {
@@ -24,14 +25,14 @@ public class Main {
             scanner.nextLine();
             switch (choice) {
                 case 1:
-                    addContact(list, list1);
+                    addContact(list, list1, list2);
                     break;
                 case 2:
                     list.print();
                     break;
                 case 3:
-                    System.out.println("You could search for a contact from their first names:");
-                    String fName = scanner.nextLine();
+                    searchContact(list, list2);
+                    break;
                 case 4:
                     removeContact(list, list1);
                     break;
@@ -42,7 +43,7 @@ public class Main {
         } while (flag);
     }
 
-    public static SinglyLinkedLIst addContact(SinglyLinkedLIst list, List list1) {
+    public static SinglyLinkedLIst addContact(SinglyLinkedLIst list, List list1, List list2) {
         Scanner scanner = new Scanner(System.in);
         Person person = new Person();
         String s;
@@ -52,6 +53,7 @@ public class Main {
         String fName = scanner.nextLine();
         person.setfName(fName);
         list1.add(fName);
+        list2.add(fName);
         System.out.print("Last Name:");
         String lName = scanner.nextLine();
         person.setlName(lName);
@@ -98,6 +100,10 @@ public class Main {
         } else {
             System.out.println(list1.get(i + i - 2) + " " + list1.get(i + i - 1) + "'s contact deleted from list!");
         }
+        return list;
+    }
+
+    public static SinglyLinkedLIst searchContact(SinglyLinkedLIst list, List list2) {
 
         return list;
     }
