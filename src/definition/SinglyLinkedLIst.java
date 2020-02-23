@@ -9,7 +9,7 @@ public class SinglyLinkedLIst<E> implements SinglyADT<E> {
     public int getSize() {
         return size;
     }
-
+    //This method give the node according to index.
     public Node<E> getNode(int index) {
         Node<E> response = head;
         if (index < 0 && index > size) {
@@ -22,11 +22,13 @@ public class SinglyLinkedLIst<E> implements SinglyADT<E> {
         return response;
     }
 
+    //This method add First node in list.
     private void addFirst(E item) {
         head = new Node<>(item, head);
         size++;
     }
 
+    //This method add node after the given node.
     private void addAfter(Node<E> node, E item) {
         Node<E> node1 = new Node<>(item, node.next);
         node.next = node1;
@@ -46,6 +48,7 @@ public class SinglyLinkedLIst<E> implements SinglyADT<E> {
         add(size, item);
     }
 
+    //This method remove first Node from the list.
     private void removeFirst() {
         if (head == null) {
             throw new IndexOutOfBoundsException(Integer.toString(size));
@@ -55,6 +58,7 @@ public class SinglyLinkedLIst<E> implements SinglyADT<E> {
         }
     }
 
+    //This method remove Node after the given node.
     private void removeAfter(Node<E> node) {
         if (node.next == null) {
             throw new IndexOutOfBoundsException(Integer.toString(size));
@@ -64,6 +68,7 @@ public class SinglyLinkedLIst<E> implements SinglyADT<E> {
         }
     }
 
+    //This method remove node according to index.
     public void remove(int index) {
         if (index < 0 && index > size)
             throw new IndexOutOfBoundsException(Integer.toString(size));
@@ -78,6 +83,7 @@ public class SinglyLinkedLIst<E> implements SinglyADT<E> {
         remove(size);
     }
 
+    //This method search the given time in the list.
     @Override
     public int search(E item) {
         Node<E> temp = head;
@@ -90,6 +96,7 @@ public class SinglyLinkedLIst<E> implements SinglyADT<E> {
         return 0;
     }
 
+    //This method perform sorting in list.
     @Override
     public void sort() {
         Node current = head, index = null;
@@ -116,6 +123,7 @@ public class SinglyLinkedLIst<E> implements SinglyADT<E> {
         }
     }
 
+    //This method print all the nodes in list.
     @Override
     public void print() {
         Node<E> response = head;
@@ -127,6 +135,7 @@ public class SinglyLinkedLIst<E> implements SinglyADT<E> {
         }
     }
 
+    //This method print only specific node .
     public void print(int index) {
         Node<E> response = head;
         System.out.println("-------- * -------- * -------- * --------");
@@ -139,6 +148,7 @@ public class SinglyLinkedLIst<E> implements SinglyADT<E> {
         }
     }
 
+    //private Node class to provide the node.
     private static class Node<E> implements Comparable<E> {
         private E data;
         private Node<E> next;

@@ -8,6 +8,7 @@ public class Person implements Comparable<Person> {
     private String lName;
     private String email;
     private long phoneNumber;
+    //This list contains the phone numbers.
     List<Long> list = new ArrayList<>();
 
     public Person() {
@@ -58,6 +59,7 @@ public class Person implements Comparable<Person> {
         list.add(phoneNumber);
     }
 
+    //This method addString() add the list of phone number in StringBuilder in particular format.
     private StringBuilder addString() {
         StringBuilder sb = new StringBuilder();
         int k = 0;
@@ -79,6 +81,7 @@ public class Person implements Comparable<Person> {
                 "-------- * -------- * -------- * --------";
     }
 
+    //This method compare the fName of two persons.
     @Override
     public int compareTo(Person person) {
         return fName.compareTo(person.fName);

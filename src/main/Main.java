@@ -43,7 +43,7 @@ public class Main {
             }
         } while (flag);
     }
-
+    //This method contain how we gain all the requirements from the user.
     public static SinglyLinkedLIst addContact(SinglyLinkedLIst list, ArrayList list1, ArrayList list2) {
         Scanner scanner = new Scanner(System.in);
         Person person = new Person();
@@ -86,6 +86,7 @@ public class Main {
         return list;
     }
 
+    //This method contain how information accept from user to removing person from the contact list.
     public static SinglyLinkedLIst removeContact(SinglyLinkedLIst list, ArrayList list1, ArrayList list2) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Here are all your contacts:");
@@ -103,6 +104,7 @@ public class Main {
         return list;
     }
 
+    //This method contain all the needed information accept from the user to perform search.
     public static SinglyLinkedLIst searchContact(SinglyLinkedLIst list, ArrayList list2) {
         System.out.println("You could search for a contact from their first names:");
         Scanner scanner = new Scanner(System.in);
