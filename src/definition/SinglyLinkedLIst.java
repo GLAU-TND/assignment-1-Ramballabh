@@ -138,7 +138,6 @@ public class SinglyLinkedLIst<E> implements SinglyADT<E> {
     //This method print only specific node .
     public void print(int index) {
         Node<E> response = head;
-        System.out.println("-------- * -------- * -------- * --------");
         for (int i = 0; i < index; i++) {
             E data = response.getData();
             response = response.getNext();
